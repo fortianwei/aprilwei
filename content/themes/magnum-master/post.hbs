@@ -1,0 +1,62 @@
+{{!< default}}
+ {{> header}}
+ <div class="wrapper_magnum">
+     <main class="main_magnum" role="main">
+         {{#post}}
+         <article class="article_magnum" role="article" itemscope itemtype="http://schema.org/Article">
+             <header class="postheader_magnum">
+                 <h1 class="posttitle_magnum" itemprop="headline" id="header">{{title}}</h1>
+             </header>
+             <div class="postcontent_magnum" itemprop="articleBody">
+                 {{content}}
+             </div>
+
+
+             <footer class="article_meta_magnum">
+                 <div  class="half">
+                     <div>
+                         <span  class="dimmed">发表于 </span>
+                         <time class="date_magnum" datetime="{{date format="YYYY-MM-DD"}}" itemprop="datePublished">{{date format='YYYY-MM-DD'}}</time>
+                     </div>
+                     {{#if tags}}
+                         <div>
+                             <span class="dimmed"> 标签&nbsp;&nbsp;&nbsp;&nbsp; </span>
+                             <span> {{tags separator=" , "}}</span>
+                         </div>
+                     {{/if}}
+                 </div>
+
+                 <div class="clear"></div>
+
+ 
+             </footer>
+             <div class="clear"></div>
+             <!-- 多说评论框 start -->
+             <div class="ds-thread" data-thread-key="{{@blog.id}}" data-title="{{@blog.title}}" data-url="{{@blog.url}}"></div>
+             <!-- 多说评论框 end -->
+             <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+             <script type="text/javascript">
+                 var duoshuoQuery = {short_name:"aprilwei"};
+                 (function() {
+                     var ds = document.createElement('script');
+                     ds.type = 'text/javascript';ds.async = true;
+                     ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                     ds.charset = 'UTF-8';
+                     (document.getElementsByTagName('head')[0]
+                             || document.getElementsByTagName('body')[0]).appendChild(ds);
+                 })();
+             </script>
+             <!-- 多说公共JS代码 end -->
+         </article>
+
+
+         {{/post}}
+ 
+         {{#if pagination}}
+             <div class="pagination_magnum">
+                 {{{pagination}}}
+             </div>
+         {{/if}}
+     </main>
+ </div>
+ {{> footer}}

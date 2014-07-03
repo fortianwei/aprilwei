@@ -1,0 +1,31 @@
+
+<html>
+<head>
+   
+
+   <link href="prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="prettify.js"></script>
+   <script>document.body.onLoad = prettyPrint()</script>
+</head>
+<body >
+
+
+    <pre class="prettyprint"><code>public static void main(String[] args) {
+    System.out.println("Main:main,currentGamePath:"+args[1]+"w:"+args[2]+" h:"+args[3]);
+    int w = Integer.parseInt(args[2]);
+    int h = Integer.parseInt(args[3]);
+
+    DoppioDevice.getInstance().init(w, h, false);
+    currentGamePath = "./games/"+args[1];
+    m = createMidlet(args[0]);  ;
+
+    display = Display.getDisplay(m);
+    m.onStart();
+    new LoopThread(m).start(); 
+}</code>
+</pre>
+
+	
+
+</body>
+</html>
